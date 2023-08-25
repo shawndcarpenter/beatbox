@@ -19,7 +19,7 @@ RSpec.describe LinkedList do
     expect(list.head.next_node).to be(nil)
   end
 
-  it 'counts number of nodes' do
+  it 'counts number of nodes in head' do
     list = LinkedList.new
     list.append("doop")
     expect(list.count).to eq(1)
