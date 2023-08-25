@@ -22,7 +22,7 @@ RSpec.describe LinkedList do
   it 'counts number of nodes' do
     list = LinkedList.new
     list.append("doop")
-    expect(list.count).to be(1)
+    expect(list.count).to eq(1)
   end
 
   it 'contains string of doop' do
