@@ -55,7 +55,11 @@ RSpec.describe LinkedList do
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
+    #require 'pry';  binding.pry
     expect(list.to_string).to eq("doop deep")
   end
 
 end
+
+#when I call list in pry, there is an extra comma than what is in the interaction pattern
+#how can i iterate over something that isnt an array?
