@@ -5,15 +5,29 @@ class LinkedList
     @head = nil
   end
 
+  # def append(word)
+  #   last_node = Node.new(word)
+  #   if @head == nil
+  #     @head = Node.new(word)
+  #   else
+  #     @head.next_node = Node.new(word)
+  #   end
+  # end
+
   def append(word)
+    last_node = Node.new(word)
+    new_node = Node.new(word)
     if @head == nil
+      @head = last_node
+    else 
       @head = Node.new(word)
-    else
-      @head.next_node = Node.new(word)
+      @head.next_node = new_node
+      until new_node = last_node do
+        new_node.next_node = new_node
+      end
     end
   end
-
-    
+    #how can i use variable assignment to shuffle data around in list
 
 
     # until @next_node == nil

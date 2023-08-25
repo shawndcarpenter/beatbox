@@ -63,3 +63,4 @@ end
 
 #when I call list in pry, there is an extra comma than what is in the interaction pattern
 #how can i iterate over something that isnt an array?
+#code only works once, cannot 
