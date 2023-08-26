@@ -35,10 +35,10 @@ RSpec.describe LinkedList do
     list = LinkedList.new
     expect(list.head).to be(nil)
     list.append("doop")
+   # require 'pry';  binding.pry
     expect(list.head.next_node).to be(nil)
     expect(list.count).to eq(1)
     list.append("deep")
-    #require 'pry';  binding.pry
     expect(list.head.next_node.data).to eq("deep")
   end
 
@@ -59,6 +59,19 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("doop deep")
   end
 
+  it 'appends more than 2 nodes' do
+    list = LinkedList.new
+    expect(list.head).to be(nil)
+    list.append("doop")
+   #require 'pry';  binding.pry
+    expect(list.head.next_node).to be(nil)
+    expect(list.count).to eq(1)
+    list.append("deep")
+    expect(list.head.next_node.data).to eq("deep")
+    #require 'pry';  binding.pry
+    list.append("dog")
+    expect(list.head.next_node.next_node.data).to eq("dog")
+  end
 end
 
 #when I call list in pry, there is an extra comma than what is in the interaction pattern
