@@ -40,7 +40,15 @@ RSpec.describe BeatBox do
     expect(bb.list.to_string).to eq("deep doo ditt woo hoo shu")
     expect(bb.count).to eq(6)
     expect(bb.list.count).to eq(6)
-    bb.play
+    #bb.play
   end
 
+  #iteration 4
+  #validating beats
+  it 'only plays valid beats' do
+    bb = BeatBox.new
+    bb.append("deep")
+    bb.append("Mississippi")
+    expect(bb.all).to eq("deep")
+  end
 end

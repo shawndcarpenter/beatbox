@@ -8,9 +8,12 @@ class BeatBox
   end
 
   def append(string)
+    valid_beats = ["tee", "dee", "deep", "doo", "dit", "bop", "boop", "la", "na", "woo", "hoo", "shu", "ditt"]
     words = string.split(" ")
     words.each do |word|
-      list.append(word)
+      if valid_beats.include?(word)
+        list.append(word)
+      end
     end
   end
 
@@ -21,4 +24,11 @@ class BeatBox
   def play 
     `say -r 100 -v Boing #{list.to_string}`
   end
+
+  def all 
+    @list.to_string
+  end
+
+
+
 end
