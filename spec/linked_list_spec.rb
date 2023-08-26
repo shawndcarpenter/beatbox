@@ -150,7 +150,7 @@ RSpec.describe LinkedList do
     expect(list.find(2, 1)).to eq("shi")
   end
 
-  xit 'finds multiple elements at a position' do
+  it 'finds multiple elements at a position' do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
@@ -158,7 +158,20 @@ RSpec.describe LinkedList do
     list.append("shu")
     list.append("blop")
     expect(list.to_string).to eq("deep woo shi shu blop")
+    #require 'pry';  binding.pry
     expect(list.find(1, 3)).to eq("woo shi shu")
+  end
+
+  it 'finds multiple elements at a different position' do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    expect(list.to_string).to eq("deep woo shi shu blop")
+    #require 'pry';  binding.pry
+    expect(list.find(2, 2)).to eq("shu blop")
   end
 
   xit 'checks if list includes an element' do

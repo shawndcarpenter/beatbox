@@ -80,11 +80,20 @@ class LinkedList
     current_node = @head
     if @head.nil?
       string_holder
-    else
+    elsif number == 1
       (position).times do
         current_node = current_node.next_node
       end
       string_holder += current_node.data
+    elsif number > 1
+      (position).times do
+        current_node = current_node.next_node
+        string_holder += current_node.data
+        (number - 1).times do
+          current_node = current_node.next_node
+          string_holder += " " + current_node.data
+        end
+      end
     end
     return string_holder
   end
@@ -99,5 +108,5 @@ class LinkedList
     node_counter
   end
 
-
+  
 end
