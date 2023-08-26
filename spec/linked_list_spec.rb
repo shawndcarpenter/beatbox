@@ -95,19 +95,38 @@ RSpec.describe LinkedList do
     expect(list.count).to eq(3)
   end
 
-  it 'inserts at index' do
+  it 'inserts at index 1' do
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
     list.prepend("dop")
-    require 'pry';  binding.pry
+    #require 'pry';  binding.pry
     list.insert(1, "woo")
     #require 'pry';  binding.pry
     expect(list.to_string).to eq("dop woo plop suu")
+    #getting infinite loop if other than position one
   end
 
+  it 'inserts at other index' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    #require 'pry';  binding.pry
+    list.insert(2, "woo")
+    #require 'pry';  binding.pry
+    expect(list.to_string).to eq("dop plop woo suu")
+  end
+
+  it 'inserts at index 0' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    #require 'pry';  binding.pry
+    list.insert(0, "woo")
+    #require 'pry';  binding.pry
+    expect(list.to_string).to eq("woo dop plop suu")
+  end
 end
 
-#when I call list in pry, there is an extra comma than what is in the interaction pattern
-#how can i iterate over something that isnt an array?
-#code only works once, cannot 

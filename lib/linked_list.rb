@@ -92,10 +92,10 @@ class LinkedList
 
       if @head == nil
         @head = new_node
-
       elsif position == 0
+        old_head = @head
+        new_node.next_node = old_head
         @head = new_node
-
       else
         (position - 1).times do
           first_nodes = current_node.next_node
@@ -103,8 +103,18 @@ class LinkedList
         (position).times do 
           current_node = current_node.next_node
         end
+
+        last_nodes = first_nodes.next_node
         first_nodes.next_node = new_node
         new_node.next_node = last_nodes
+
+        #what this list means:
+        #first nodes will have the new node after them
+        #new node will be followed by the rest of the nodes
+        #last nodes will be after first nodes
+
+        #why did the order matter? It only worked if last nodes was defined first
+      
       end
     end
   
@@ -126,3 +136,5 @@ class LinkedList
   
 
 end
+
+#Just a reminder to write tests for plenty of situations you might not run into if you're just basing it off of the interaction pattern! My code for the insert method worked fine until I set the index to 0 or 2; ended up having to rewrite some stuff.
