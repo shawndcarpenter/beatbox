@@ -75,6 +75,19 @@ class LinkedList
     end
   end
   
+  def find(position, number)
+    string_holder = ""
+    current_node = @head
+    if @head.nil?
+      string_holder
+    else
+      (position).times do
+        current_node = current_node.next_node
+      end
+      string_holder += current_node.data
+    end
+    return string_holder
+  end
 
   def count
     node_counter = 0

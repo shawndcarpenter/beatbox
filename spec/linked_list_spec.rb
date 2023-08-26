@@ -128,6 +128,16 @@ RSpec.describe LinkedList do
     #require 'pry';  binding.pry
     expect(list.to_string).to eq("woo dop plop suu")
   end
+  it 'finds one element at head position' do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    expect(list.to_string).to eq("deep woo shi shu blop")
+    expect(list.find(0, 1)).to eq("deep")
+  end
 
   it 'finds one element at a position' do
     list = LinkedList.new
