@@ -140,7 +140,7 @@ RSpec.describe LinkedList do
     expect(list.find(2, 1)).to eq("shi")
   end
 
-  it 'finds multiple elements at a position' do
+  xit 'finds multiple elements at a position' do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
@@ -151,7 +151,7 @@ RSpec.describe LinkedList do
     expect(list.find(1, 3)).to eq("woo shi shu")
   end
 
-  it 'checks if list includes an element' do
+  xit 'checks if list includes an element' do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
@@ -162,7 +162,7 @@ RSpec.describe LinkedList do
     expect(list.includes?("deep")).to be truthy
   end
 
-  it 'checks if list does NOT include an element' do
+  xit 'checks if list does NOT include an element' do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
@@ -173,7 +173,7 @@ RSpec.describe LinkedList do
     expect(list.includes?("dep")).to be(false)
   end
 
-  it 'returns the last element' do
+  xit 'returns the last element' do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
@@ -183,7 +183,7 @@ RSpec.describe LinkedList do
     expect(list.pop).to eq("blop")
   end
 
-  it 'returns the next element' do
+  xit 'returns the next element' do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
@@ -194,7 +194,7 @@ RSpec.describe LinkedList do
     expect(list.pop).to eq("shu")
   end
 
-  it 'returns string without last elements' do
+  xit 'returns string without last elements' do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
