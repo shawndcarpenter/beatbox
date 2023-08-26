@@ -73,6 +73,19 @@ RSpec.describe LinkedList do
     #require 'pry';  binding.pry
     expect(list.head.next_node.next_node.data).to eq("dog")
   end
+
+  #iteration 2
+
+  it 'prepends dop' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    expect(list.to_string).to eq("plop suu")
+    #require 'pry';  binding.pry
+    list.prepend("dop")
+    #require 'pry';  binding.pry
+    expect(list.to_string).to eq("dop plop suu")
+  end
 end
 
 #when I call list in pry, there is an extra comma than what is in the interaction pattern

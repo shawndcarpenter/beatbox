@@ -35,6 +35,19 @@ class LinkedList
     end
   end
 
+  def prepend(word)
+    new_head = Node.new(word)
+    if @head == nil
+      @head = new_head
+    else
+      old_head = @head
+      new_head.next_node = old_head
+      # @head.next_node = old_head
+      @head = new_head
+
+    end
+  end
+
   # [head] -> [new node] -> [last node] -> nil
   # make a head which is nil
   # give nil head a last node
@@ -90,5 +103,6 @@ class LinkedList
     end
     node_counter
   end
+
 
 end
