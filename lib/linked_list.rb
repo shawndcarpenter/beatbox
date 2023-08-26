@@ -98,6 +98,25 @@ class LinkedList
     return string_holder
   end
 
+  def includes?(string)
+    current_node = @head
+    include = false
+    # if data is equal to string, prints true
+    if @head.data == string
+      include = true
+    elsif
+      until current_node.next_node.nil? || current_node.data == string
+        current_node = current_node.next_node
+        if current_node.data == string
+          include = true
+        else
+          include = false
+        end
+      end
+    end
+    include
+  end
+
   def count
     node_counter = 0
     if head.next_node == nil
