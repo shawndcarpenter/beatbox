@@ -70,6 +70,7 @@ RSpec.describe LinkedList do
     expect(list.head.next_node.data).to eq("deep")
     #require 'pry';  binding.pry
     list.append("dog")
+    #require 'pry';  binding.pry
     expect(list.head.next_node.next_node.data).to eq("dog")
   end
 end
