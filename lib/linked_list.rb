@@ -128,11 +128,6 @@ class LinkedList
   end
 
   def pop
-    #if the current node we are looking at is the last node, return this node and remove from list
-    #if the current node has a next node value of nil, return this node
-    #make the second to last node have a next node value of nil
-    #if the next node of the next node of the current node has a value of nil, we should make current node have a value of nil
-    #thus removing the last node
     popped = ""
     new_list = 
     current_node = @head
@@ -142,8 +137,6 @@ class LinkedList
     end
     popped += current_node.next_node.data
     current_node.next_node = nil
-
-    
     popped
   end
   
