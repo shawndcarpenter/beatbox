@@ -6,18 +6,6 @@ class LinkedList
     @head = nil
   end
 
-  # def append(word)
-  #   last_node = Node.new(word)
-  #   if @head == nil
-  #     @head = Node.new(word)
-  #   else
-  #     @head.next_node = Node.new(word)
-  #   end
-  # end
-
-  # def last_node
-    
-  # end
 
   def append(word)
     last_node = Node.new(word)
@@ -47,6 +35,9 @@ class LinkedList
 
     end
   end
+
+  
+
 
   # [head] -> [new node] -> [last node] -> nil
   # make a head which is nil
@@ -92,6 +83,30 @@ class LinkedList
       return datum
     end
 
+    def insert(position, word)
+      new_node = Node.new(word)
+      current_node = @head
+      #position_counter = 0
+      first_nodes = @head
+      last_nodes = first_nodes.next_node
+
+      if @head == nil
+        @head = new_node
+
+      elsif position == 0
+        @head = new_node
+
+      else
+        (position - 1).times do
+          first_nodes = current_node.next_node
+        end
+        (position).times do 
+          current_node = current_node.next_node
+        end
+        first_nodes.next_node = new_node
+        new_node.next_node = last_nodes
+      end
+    end
   
 
   def count
@@ -104,5 +119,10 @@ class LinkedList
     node_counter
   end
 
+  def position
+    @head.to_string.split(" ").index
+  end
+
+  
 
 end
