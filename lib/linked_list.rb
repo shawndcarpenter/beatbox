@@ -127,5 +127,19 @@ class LinkedList
     node_counter
   end
 
+  def pop
+    popped = ""
+    current_node = @head
+    new_head = @head
+    until current_node.next_node.nil?
+      current_node = current_node.next_node
+      if current_node.next_node.nil?
+        popped += current_node.data
+
+      end
+
+    end
+    popped
+  end
   
 end

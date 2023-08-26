@@ -199,7 +199,7 @@ RSpec.describe LinkedList do
     expect(list.includes?("dep")).to be(false)
   end
 
-  xit 'returns the last element' do
+  it 'returns the last element' do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
@@ -209,7 +209,7 @@ RSpec.describe LinkedList do
     expect(list.pop).to eq("blop")
   end
 
-  xit 'returns the next element' do
+  it 'returns the next last element' do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
@@ -220,7 +220,7 @@ RSpec.describe LinkedList do
     expect(list.pop).to eq("shu")
   end
 
-  xit 'returns string without last elements' do
+  it 'returns string without last elements' do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
