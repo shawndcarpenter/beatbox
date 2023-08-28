@@ -1,7 +1,5 @@
 class LinkedList
   attr_reader :head, :data
-  attr_writer :next_node
-  attr_accessor :data
   def initialize
     @head = nil
   end
@@ -75,6 +73,7 @@ class LinkedList
     end
   end
   
+
   def find(position, number)
     string_holder = []
     current_node = @head
@@ -97,6 +96,7 @@ class LinkedList
     return string_holder.join(" ")
   end
 
+
   def includes?(string)
     current_node = @head
     include = false
@@ -115,6 +115,7 @@ class LinkedList
     include
   end
 
+
   def count
     node_counter = 0
     if head.next_node == nil
@@ -125,9 +126,9 @@ class LinkedList
     node_counter
   end
 
+
   def pop
     popped = ""
-    new_list = 
     current_node = @head
     new_head = @head
     until current_node.next_node.next_node.nil?
