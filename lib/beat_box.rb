@@ -1,8 +1,13 @@
 class BeatBox
-
-  def initialize
+  attr_reader :words, :rate
+  def initialize(words = nil)
     @list = LinkedList.new
-    
+    @words = words
+    @rate = 500
+    if @words != nil
+      append(words)
+    end
+
   end
 
   def list
@@ -10,7 +15,7 @@ class BeatBox
   end
 
   def append(string)
-    valid_beats = ["tee", "dee", "deep", "doo", "dit", "bop", "boop", "la", "na", "woo", "hoo", "shu", "ditt"]
+    valid_beats = ["tee", "dee", "deep", "doo", "dit", "bop", "boop", "la", "na", "woo", "hoo", "shu", "ditt", "dop"]
     words = string.split(" ")
     words.each do |word|
       if valid_beats.include?(word)
@@ -24,12 +29,14 @@ class BeatBox
   end
 
   def play 
-    `say -r 100 -v Boing #{list.to_string}`
+    `say -r #{rate} -v Boing #{list.to_string}`
+    p @list.count
   end
 
-  def rate
 
-  end
+  # def rate(number)
+  #   rate = 500
+  # end
 
   def all 
     @list.to_string

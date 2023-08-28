@@ -46,8 +46,8 @@ RSpec.describe BeatBox do
   #iteration 4
   #validating beats
   it 'only plays valid beats' do
-    bb = BeatBox.new
-    bb.append("deep")
+    bb = BeatBox.new("deep")
+    expect(bb.all).to eq("deep")
     bb.append("Mississippi")
     expect(bb.all).to eq("deep")
   end
@@ -55,8 +55,10 @@ RSpec.describe BeatBox do
   #speed and voice
 
   it 'plays the 4 sounds with normal voice' do
-    bb = BeatBox.new 
-    bb.append("deep dop dop deep")
-    
+    bb = BeatBox.new("deep dop dop deep")
+    expect(bb.all).to eq("deep dop dop deep")
+    bb.rate = 100
+    expect(bb.play).to eq(4)
+
   end
 end
