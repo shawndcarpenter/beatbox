@@ -1,6 +1,8 @@
 class BeatBox
+
   def initialize
     @list = LinkedList.new
+    
   end
 
   def list
@@ -23,6 +25,10 @@ class BeatBox
 
   def play 
     `say -r 100 -v Boing #{list.to_string}`
+  end
+
+  def rate
+
   end
 
   def all 

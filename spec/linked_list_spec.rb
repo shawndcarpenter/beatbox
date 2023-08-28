@@ -35,7 +35,6 @@ RSpec.describe LinkedList do
     list = LinkedList.new
     expect(list.head).to be(nil)
     list.append("doop")
-   # require 'pry';  binding.pry
     expect(list.head.next_node).to be(nil)
     expect(list.count).to eq(1)
     list.append("deep")
@@ -47,7 +46,6 @@ RSpec.describe LinkedList do
     expect(list.head).to be(nil)
     list.append("doop")
     list.append("deep")
-    #require 'pry';  binding.pry
     expect(list.count).to eq(2)
   end
 
@@ -55,7 +53,6 @@ RSpec.describe LinkedList do
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
-    #require 'pry';  binding.pry
     expect(list.to_string).to eq("doop deep")
   end
 
@@ -63,14 +60,11 @@ RSpec.describe LinkedList do
     list = LinkedList.new
     expect(list.head).to be(nil)
     list.append("doop")
-   #require 'pry';  binding.pry
     expect(list.head.next_node).to be(nil)
     expect(list.count).to eq(1)
     list.append("deep")
     expect(list.head.next_node.data).to eq("deep")
-    #require 'pry';  binding.pry
     list.append("dog")
-    #require 'pry';  binding.pry
     expect(list.head.next_node.next_node.data).to eq("dog")
   end
 
@@ -81,9 +75,7 @@ RSpec.describe LinkedList do
     list.append("plop")
     list.append("suu")
     expect(list.to_string).to eq("plop suu")
-    #require 'pry';  binding.pry
     list.prepend("dop")
-    #require 'pry';  binding.pry
     expect(list.to_string).to eq("dop plop suu")
   end
 
@@ -100,9 +92,7 @@ RSpec.describe LinkedList do
     list.append("plop")
     list.append("suu")
     list.prepend("dop")
-    #require 'pry';  binding.pry
     list.insert(1, "woo")
-    #require 'pry';  binding.pry
     expect(list.to_string).to eq("dop woo plop suu")
     #getting infinite loop if other than position one
   end
@@ -112,9 +102,7 @@ RSpec.describe LinkedList do
     list.append("plop")
     list.append("suu")
     list.prepend("dop")
-    #require 'pry';  binding.pry
     list.insert(2, "woo")
-    #require 'pry';  binding.pry
     expect(list.to_string).to eq("dop plop woo suu")
   end
 
@@ -123,9 +111,7 @@ RSpec.describe LinkedList do
     list.append("plop")
     list.append("suu")
     list.prepend("dop")
-    #require 'pry';  binding.pry
     list.insert(0, "woo")
-    #require 'pry';  binding.pry
     expect(list.to_string).to eq("woo dop plop suu")
   end
   it 'finds one element at head position' do
@@ -158,11 +144,10 @@ RSpec.describe LinkedList do
     list.append("shu")
     list.append("blop")
     expect(list.to_string).to eq("deep woo shi shu blop")
-    #require 'pry';  binding.pry
     expect(list.find(1, 3)).to eq("woo shi shu")
   end
 
-  xit 'finds multiple elements at a different position' do
+  it 'finds multiple elements at a different position' do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
@@ -170,8 +155,7 @@ RSpec.describe LinkedList do
     list.append("shu")
     list.append("blop")
     expect(list.to_string).to eq("deep woo shi shu blop")
-    #require 'pry';  binding.pry
-    expect(list.find(2, 2)).to eq("shu blop")
+    expect(list.find(2, 2)).to eq("shi shu")
   end
 
   it 'checks if list includes an element' do
@@ -182,7 +166,6 @@ RSpec.describe LinkedList do
     list.append("shu")
     list.append("blop")
     expect(list.to_string).to eq("deep woo shi shu blop")
-    #require 'pry';  binding.pry
     expect(list.includes?("deep")).to be_truthy
     expect(list.includes?("woo")).to be_truthy
     expect(list.includes?("blop")).to be_truthy

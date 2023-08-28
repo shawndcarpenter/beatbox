@@ -51,4 +51,12 @@ RSpec.describe BeatBox do
     bb.append("Mississippi")
     expect(bb.all).to eq("deep")
   end
+
+  #speed and voice
+
+  it 'plays the 4 sounds with normal voice' do
+    bb = BeatBox.new 
+    bb.append("deep dop dop deep")
+    
+  end
 end
