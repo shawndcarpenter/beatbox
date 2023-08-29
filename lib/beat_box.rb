@@ -4,33 +4,42 @@ require "./lib/node"
 class BeatBox
   attr_reader :list
   attr_accessor :rate, :voice
+
   def initialize(words = nil)
     @list = LinkedList.new
+    @rate = 500
+    @voice = "Boing"
+    
     if words
       append(words)
     end
-    @rate = 500
-    @voice = "Boing"
+
   end
 
   def append(string)
     valid_beats = ["tee", "dee", "deep", "doo", "dit", "bop", "boop", "la", "na", "woo", "hoo", "shu", "ditt", "dop"]
     words = string.split(" ")
+
     words.each do |word|
       if valid_beats.include?(word)
         list.append(word)
       end
+
     end
+
   end
 
   def prepend(string)
     valid_beats = ["tee", "dee", "deep", "doo", "dit", "bop", "boop", "la", "na", "woo", "hoo", "shu", "ditt", "dop"]
     words = string.split(" ")
+
     words.each do |word|
       if valid_beats.include?(word)
         list.prepend(word)
       end
+
     end
+
   end
 
   def reset_rate

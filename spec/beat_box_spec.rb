@@ -93,4 +93,5 @@ RSpec.describe BeatBox do
     bb.reset_rate
     bb.play
   end
+
 end
