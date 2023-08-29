@@ -24,6 +24,14 @@ class BeatBox
     end
   end
 
+  def reset_rate
+    @rate = 500
+  end
+
+  def reset_voice
+    @voice = "Boing"
+  end
+
   def count 
     @list.count
   end

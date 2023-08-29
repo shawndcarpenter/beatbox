@@ -55,27 +55,37 @@ RSpec.describe BeatBox do
 
   it 'plays the 4 sounds with normal voice' do
     bb = BeatBox.new("deep dop dop deep")
-    expect(bb.all).to eq("deep dop dop deep")
-    #require "pry"; binding.pry
-    @rate = 500
-    #require "pry"; binding.pry
     bb.play
-    #expect(bb.play).to eq(4)
+    expect(bb.play).to eq(4)
+    expect(bb.voice).to eq("Boing")
+    expect(bb.rate).to eq(500)
 
   end
   it 'plays the 4 sounds with Daniel voice' do
     bb = BeatBox.new("deep dop dop deep")
-    expect(bb.all).to eq("deep dop dop deep")
-    #require "pry"; binding.pry
-    bb.rate = 100
-    bb.voice = "Boing"
-    bb.play
-    #require "pry"; binding.pry
     expect(bb.play).to eq(4)
     bb.voice = "Daniel"
-    # require "pry"; binding.pry
+    bb.rate = 100
     expect(bb.voice).to eq("Daniel")
+    expect(bb.rate).to eq(100)
     bb.play
+  end
 
+  it 'resets the rate to the default value' do
+    bb = BeatBox.new("deep dop dop deep")
+    bb.rate = 100
+    expect(bb.rate).to eq(100)
+    bb.reset_rate
+    expect(bb.rate).to eq(500)
+  end
+
+  it 'resets the voice to the default value' do
+    bb = BeatBox.new("deep dop dop deep")
+    bb.voice = "Daniel"
+    expect(bb.voice).to eq("Daniel")
+    bb.reset_voice
+    expect(bb.voice).to eq("Boing")
+    bb.reset_rate
+    bb.play
   end
 end
