@@ -124,7 +124,7 @@ class LinkedList
     current_node = @head
     new_head = @head
     if @head == nil
-      return "no poppable nodes"
+      popped = ""
     elsif @head.next_node == nil
       popped += @head.data
       @head = nil

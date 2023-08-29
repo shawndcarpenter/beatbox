@@ -2,12 +2,18 @@ require "./lib/linked_list"
 require "./lib/node"
 
 RSpec.describe LinkedList do
+  #iteration 1
+  it 'creates an instance of linkedlist class' do
+    list = LinkedList.new
+    expect(list).to be_instance_of(LinkedList)
+  end
+
   it 'defines list.head as nil' do
     list = LinkedList.new
     expect(list.head).to be(nil)
   end
 
-  it 'stores a value in @data' do
+  it 'stores an appended value in data' do
     list = LinkedList.new
     list.append("doop")
     expect(list.head.data).to eq("doop")
@@ -49,7 +55,7 @@ RSpec.describe LinkedList do
     expect(list.count).to eq(2)
   end
 
-  it 'stores multiple nodes data in string' do
+  it 'stores the data of multiple nodes in a string' do
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
@@ -79,7 +85,7 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("dop plop suu")
   end
 
-  it 'also counts prepends' do
+  it 'includes prepends in count' do
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
@@ -94,7 +100,6 @@ RSpec.describe LinkedList do
     list.prepend("dop")
     list.insert(1, "woo")
     expect(list.to_string).to eq("dop woo plop suu")
-    #getting infinite loop if other than position one
   end
 
   it 'inserts at other index' do
@@ -114,6 +119,7 @@ RSpec.describe LinkedList do
     list.insert(0, "woo")
     expect(list.to_string).to eq("woo dop plop suu")
   end
+
   it 'finds one element at head position' do
     list = LinkedList.new
     list.append("deep")
@@ -215,17 +221,14 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("deep woo shi")
   end
 
-  it 'returns nil if more nodes popped than present' do
+  it 'returns nothing if more nodes popped than present' do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
     list.append("shi")
-    list.pop
-    list.pop
-    list.pop
-    #require "pry"; binding.pry
-    list.pop
+    5.times { list.pop }
     expect(list.to_string).to eq("")
   end
+
 end
 

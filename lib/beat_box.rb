@@ -23,6 +23,16 @@ class BeatBox
     end
   end
 
+  def prepend(string)
+    valid_beats = ["tee", "dee", "deep", "doo", "dit", "bop", "boop", "la", "na", "woo", "hoo", "shu", "ditt", "dop"]
+    words = string.split(" ")
+    words.each do |word|
+      if valid_beats.include?(word)
+        list.prepend(word)
+      end
+    end
+  end
+
   def reset_rate
     @rate = 500
   end
