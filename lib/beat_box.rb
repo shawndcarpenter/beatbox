@@ -1,17 +1,17 @@
+require "./lib/linked_list"
+require "./lib/node"
+
 class BeatBox
-  attr_reader :words, :rate
+  attr_reader :list
+  attr_accessor :rate, :voice
   def initialize(words = nil)
     @list = LinkedList.new
-    @words = words
-    @rate = 500
-    if @words != nil
+    if words
       append(words)
     end
+    @rate = 500
+    @voice = "Boing"
 
-  end
-
-  def list
-    @list
   end
 
   def append(string)
@@ -29,13 +29,16 @@ class BeatBox
   end
 
   def play 
-    `say -r #{rate} -v Boing #{list.to_string}`
-    p @list.count
+    `say -r #{@rate} -v #{@voice} #{list.to_string}`
+    @list.count
   end
 
+  # def rate
+  #   @rate
+  # end
 
-  # def rate(number)
-  #   rate = 500
+  # def voice
+  #   @name
   # end
 
   def all 

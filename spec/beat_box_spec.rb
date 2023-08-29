@@ -5,7 +5,6 @@ require "./lib/node"
 RSpec.describe BeatBox do
   it 'creates an instance of beat box class' do
     bb = BeatBox.new
-    #require 'pry';  binding.pry
     expect(bb).to be_instance_of(BeatBox)
   end
 
@@ -57,8 +56,26 @@ RSpec.describe BeatBox do
   it 'plays the 4 sounds with normal voice' do
     bb = BeatBox.new("deep dop dop deep")
     expect(bb.all).to eq("deep dop dop deep")
+    #require "pry"; binding.pry
+    @rate = 500
+    #require "pry"; binding.pry
+    bb.play
+    #expect(bb.play).to eq(4)
+
+  end
+  it 'plays the 4 sounds with Daniel voice' do
+    bb = BeatBox.new("deep dop dop deep")
+    expect(bb.all).to eq("deep dop dop deep")
+    #require "pry"; binding.pry
     bb.rate = 100
+    bb.voice = "Boing"
+    bb.play
+    #require "pry"; binding.pry
     expect(bb.play).to eq(4)
+    bb.voice = "Daniel"
+    # require "pry"; binding.pry
+    expect(bb.voice).to eq("Daniel")
+    bb.play
 
   end
 end
