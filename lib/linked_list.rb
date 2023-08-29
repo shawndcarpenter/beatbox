@@ -50,7 +50,9 @@ class LinkedList
     current_node = @head
     first_nodes = @head
     last_nodes = first_nodes.next_node
-    if @head == nil
+    if (position + 1) > count
+      append(word)
+    elsif @head == nil
       @head = new_node
     elsif position == 0
       old_head = @head
@@ -94,7 +96,9 @@ class LinkedList
   def includes?(string)
     current_node = @head
     include = false
-    if @head.data == string
+    if @head == nil
+    include = false
+    elsif @head.data == string
       include = true
     elsif
       until current_node.next_node.nil? || current_node.data == string

@@ -65,6 +65,7 @@ RSpec.describe BeatBox do
     expect(bb.rate).to eq(500)
 
   end
+
   it 'plays the 4 sounds with Daniel voice' do
     bb = BeatBox.new("deep dop dop deep")
     expect(bb.play).to eq(4)

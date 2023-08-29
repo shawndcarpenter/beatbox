@@ -120,6 +120,15 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("woo dop plop suu")
   end
 
+  it 'appends numbers inserted beyond list' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(8, "woo")
+    expect(list.to_string).to eq("dop plop suu woo")
+  end
+
   it 'finds one element at head position' do
     list = LinkedList.new
     list.append("deep")
@@ -185,6 +194,11 @@ RSpec.describe LinkedList do
     list.append("shu")
     list.append("blop")
     expect(list.to_string).to eq("deep woo shi shu blop")
+    expect(list.includes?("dep")).to be(false)
+  end
+
+  it 'checks if empty list includes anything' do
+    list = LinkedList.new
     expect(list.includes?("dep")).to be(false)
   end
 
