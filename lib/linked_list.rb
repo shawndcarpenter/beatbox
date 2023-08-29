@@ -4,7 +4,6 @@ class LinkedList
     @head = nil
   end
 
-
   def append(word)
     last_node = Node.new(word)
     if @head == nil
@@ -20,7 +19,6 @@ class LinkedList
     end
   end
 
-
   def prepend(word)
     new_head = Node.new(word)
     if @head == nil
@@ -32,7 +30,6 @@ class LinkedList
     end
   end
    
-
   def to_string
     datum = ""
     current_node = @head
@@ -47,7 +44,6 @@ class LinkedList
     end
     return datum
   end
-
 
   def insert(position, word)
     new_node = Node.new(word)
@@ -72,7 +68,6 @@ class LinkedList
       new_node.next_node = last_nodes 
     end
   end
-  
 
   def find(position, number)
     string_holder = []
@@ -96,7 +91,6 @@ class LinkedList
     return string_holder.join(" ")
   end
 
-
   def includes?(string)
     current_node = @head
     include = false
@@ -115,7 +109,6 @@ class LinkedList
     include
   end
 
-
   def count
     node_counter = 0
     if head.next_node == nil
@@ -126,16 +119,22 @@ class LinkedList
     node_counter
   end
 
-
   def pop
     popped = ""
     current_node = @head
     new_head = @head
-    until current_node.next_node.next_node.nil?
-      current_node = current_node.next_node
+    if @head == nil
+      return "no poppable nodes"
+    elsif @head.next_node == nil
+      popped += @head.data
+      @head = nil
+    else
+      until current_node.next_node.next_node.nil?
+        current_node = current_node.next_node
+      end
+      popped += current_node.next_node.data
+      current_node.next_node = nil
     end
-    popped += current_node.next_node.data
-    current_node.next_node = nil
     popped
   end
   

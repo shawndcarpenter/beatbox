@@ -214,5 +214,18 @@ RSpec.describe LinkedList do
     list.pop
     expect(list.to_string).to eq("deep woo shi")
   end
+
+  it 'returns nil if more nodes popped than present' do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.pop
+    list.pop
+    list.pop
+    #require "pry"; binding.pry
+    list.pop
+    expect(list.to_string).to eq("")
+  end
 end
 

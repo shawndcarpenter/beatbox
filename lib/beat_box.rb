@@ -11,7 +11,6 @@ class BeatBox
     end
     @rate = 500
     @voice = "Boing"
-
   end
 
   def append(string)
@@ -41,18 +40,8 @@ class BeatBox
     @list.count
   end
 
-  # def rate
-  #   @rate
-  # end
-
-  # def voice
-  #   @name
-  # end
-
   def all 
     @list.to_string
   end
-
-
 
 end
